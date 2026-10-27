@@ -1,0 +1,191 @@
+:root {
+  --primary-color: #e50914;
+  --primary-hover: #b81d24;
+  --secondary-color: #38bdf8;
+  --bg-dark: #0b0f19;
+  --card-bg: #151d30;
+  --card-border: #1e293b;
+  --accent-gold: #f59e0b;
+  --text-muted: #94a3b8;
+  --text-bright: #f8fafc;
+  --seat-avail: #10b981;
+  --seat-booked: #475569;
+  --seat-selected: #f59e0b;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-bright);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Glassmorphism & Cards */
+.glass-card {
+  background: rgba(21, 29, 48, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(229, 9, 20, 0.2);
+  border-color: rgba(229, 9, 20, 0.4);
+}
+
+/* Brand Buttons */
+.btn-brand {
+  background: linear-gradient(135deg, #e50914 0%, #b81d24 100%);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.35);
+}
+
+.btn-brand:hover {
+  background: linear-gradient(135deg, #f6121e 0%, #cc1820 100%);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.5);
+}
+
+.btn-brand-outline {
+  background: transparent;
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.btn-brand-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #fff;
+  color: #fff;
+}
+
+/* Seat Selection Visuals */
+.cinema-screen-curve {
+  height: 60px;
+  border-top: 6px solid #38bdf8;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 -15px 30px rgba(56, 189, 248, 0.35);
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+.seat-box {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.seat-available {
+  background-color: #064e3b;
+  color: #6ee7b7;
+  border: 1px solid #059669;
+}
+
+.seat-available:hover {
+  background-color: #059669;
+  color: #ffffff;
+  transform: scale(1.12);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+
+.seat-selected {
+  background-color: #f59e0b !important;
+  color: #000000 !important;
+  border: 1px solid #fbbf24 !important;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.8);
+  transform: scale(1.08);
+}
+
+.seat-booked {
+  background-color: #334155;
+  color: #64748b;
+  border: 1px solid #1e293b;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* E-Ticket Card */
+.ticket-wrapper {
+  background: #111827;
+  border: 2px dashed #374151;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticket-wrapper::before,
+.ticket-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  width: 32px;
+  height: 32px;
+  background-color: var(--bg-dark);
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.ticket-wrapper::before {
+  left: -16px;
+}
+
+.ticket-wrapper::after {
+  right: -16px;
+}
